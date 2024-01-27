@@ -31,7 +31,7 @@ const EditBooks = () => {
   //ok
   //done
 
-  const handleSaveBook = () => {
+  const handleEditBook = () => {
     const data = {
       title,
       author,
@@ -39,7 +39,7 @@ const EditBooks = () => {
     };
     setLoading(true);
     axios
-    .post('http://localhost:5555/books',data)
+    .put(`http://localhost:5555/books/${id}`,data)
     .then(()=>{
       setLoading(false);
       navigate('/');
@@ -89,7 +89,7 @@ const EditBooks = () => {
           />
 
          </div>
-         <button className="p-2 bg-sky-300 m-8" onClick={handleSaveBook}>
+         <button className="p-2 bg-sky-300 m-8" onClick={handleEditBook}>
           Save
          </button>
 
